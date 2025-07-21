@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Yeni Not Ekle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fef6f8;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .note-form {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(180, 200, 180, 0.3);
+      width: 400px;
+      border: 2px solid #d4f1d4;
+    }
+
+    h2 {
+      color: #ff99aa;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 15px;
+      border: 1px solid #c3e6cb;
+      border-radius: 8px;
+      background-color: #f9fdf9;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #b2f0e9;
+      color: #333;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #a0e3d6;
+    }
+  </style>
+</head>
+<body>
+  <form class="note-form" action="/notes/add" method="POST">
+    <h2>Yeni Not Ekle</h2>
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <label for="title">Başlık</label>
+    <input type="text" id="title" name="title" required />
+
+    <label for="content">İçerik</label>
+    <textarea id="content" name="content" required></textarea>
+
+    <button type="submit">Kaydet</button>
+  </form>
+</body>
+</html>

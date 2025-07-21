@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kayıt Ol</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background-color: #e0ffe0;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    h2 {
+      text-align: center;
+      color: #cc007a;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 12px;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #cc007a;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      margin-top: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: #006600;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Kayıt Ol</h2>
+    <form method="POST" action="/register">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+      <input type="password" name="password" placeholder="Şifre" required>
+      <button type="submit">Kayıt Ol</button>
+    </form>
+    <a href="/login">Zaten hesabın var mı? Giriş yap</a>
+  </div>
+</body>
+</html>
